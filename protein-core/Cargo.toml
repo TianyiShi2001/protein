@@ -1,0 +1,16 @@
+[package]
+name = "protein-core"
+version = "0.1.0"
+authors = ["Tianyi <ShiTianyi2001@outlook.com>"]
+edition = "2018"
+keywords = ["bioinformatics", "protein", "parser","nom", "pdb"]
+license = "MIT"
+repository = "https://github.com/TianyiShi2001/protein"
+description = "Working with protein structures"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+num-traits = "0.2"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
