@@ -12,3 +12,5 @@ description = "Working with protein structures"
 
 [dependencies]
 protein-core = '0.1.0'
+serde = { version = "1.0", features = ["derive"] }
+chrono = {version = "0.4", features = ["serde"]}
