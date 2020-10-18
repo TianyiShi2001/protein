@@ -1,9 +1,9 @@
-use super::AtomId;
+use super::AtomSerial;
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Anisou {
-    pub id: AtomId,
+    pub id: AtomSerial,
     pub u11: i32,
     pub u22: i32,
     pub u33: i32,

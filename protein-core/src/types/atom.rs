@@ -2,12 +2,12 @@ use crate::types::{AminoAcid, Element};
 use serde::{Deserialize, Serialize};
 use std::str::FromStr;
 
-use super::AtomId;
+use super::AtomSerial;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Atom {
-    pub id: AtomId,
-    pub name: AminoAcidAtomName,
+    pub id: AtomSerial,
+    pub name: AtomName,
     pub id1: char,
     pub residue: AminoAcid,
     pub chain: char,
@@ -26,7 +26,7 @@ pub struct Atom {
 pub struct GenericAtomParser;
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub enum AminoAcidAtomName {
+pub enum AtomName {
     N,
     CA,
     C,
@@ -34,15 +34,15 @@ pub enum AminoAcidAtomName {
     Other(String), // TODO: a 'lossy' version?
 }
 
-impl FromStr for AminoAcidAtomName {
+impl FromStr for AtomName {
     type Err = String;
     fn from_str(inp: &str) -> std::result::Result<Self, <Self as std::str::FromStr>::Err> {
         match inp {
-            "C" => Ok(AminoAcidAtomName::C),
-            "CA" => Ok(AminoAcidAtomName::CA),
-            "O" => Ok(AminoAcidAtomName::O),
-            "N" => Ok(AminoAcidAtomName::N),
-            _ => Ok(AminoAcidAtomName::Other(inp.to_owned())),
+            "C" => Ok(AtomName::C),
+            "CA" => Ok(AtomName::CA),
+            "O" => Ok(AtomName::O),
+            "N" => Ok(AtomName::N),
+            _ => Ok(AtomName::Other(inp.to_owned())),
         }
     }
 }
