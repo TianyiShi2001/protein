@@ -55,9 +55,9 @@ type Position = (Chain, SequenceNumber);
 /// | 30 - 70 | String       | comment  | Description of the residue modification. |
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct CustomAminoAcid {
-    pub(crate) standard_res: AminoAcid,
-    pub(crate) description: String,
-    pub(crate) occurence: Vec<Position>,
+    pub standard_res: AminoAcid,
+    pub description: String,
+    pub occurence: Vec<Position>,
 }
 
 pub type Modres = HashMap<String, CustomAminoAcid>;

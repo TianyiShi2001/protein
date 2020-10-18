@@ -2,9 +2,11 @@ use crate::types::{AminoAcid, Element};
 use serde::{Deserialize, Serialize};
 use std::str::FromStr;
 
+use super::AtomId;
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Atom {
-    pub id: u32,
+    pub id: AtomId,
     pub name: AminoAcidAtomName,
     pub id1: char,
     pub residue: AminoAcid,

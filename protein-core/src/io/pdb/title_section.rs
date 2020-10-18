@@ -2,6 +2,7 @@ use chrono::NaiveDate;
 use serde::{Deserialize, Serialize};
 
 pub type Title = String;
+pub type Keywords = Vec<String>;
 
 /// Parses AUTHOR record which is a multiline continuation record.
 /// Contains comma-seperated list of author names. If successfull
