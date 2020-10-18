@@ -1,7 +1,8 @@
-use serde::{Deserialize, Serialize};
+use serde::Serialize;
 use std::str::FromStr;
+use strum::EnumString;
 
-#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Serialize, EnumString)]
 pub enum Element {
     H,
     C,
@@ -27,33 +28,72 @@ pub enum Element {
     V,
 }
 
-impl FromStr for Element {
-    type Err = String;
-    fn from_str(inp: &str) -> std::result::Result<Self, <Self as std::str::FromStr>::Err> {
+impl Element {
+    pub fn from_uppercase(inp: &str) -> Self {
+        Self::from_bytes_uppercase(inp.as_bytes())
+    }
+
+    pub fn from_bytes_uppercase(inp: &[u8]) -> Self {
         match inp {
-            "H" => Ok(Element::H),
-            "C" => Ok(Element::C),
-            "O" => Ok(Element::O),
-            "N" => Ok(Element::N),
-            "P" => Ok(Element::P),
-            "S" => Ok(Element::S),
-            "Na" => Ok(Element::Na),
-            "Mg" => Ok(Element::Mg),
-            "Cl" => Ok(Element::Cl),
-            "K" => Ok(Element::K),
-            "Ca" => Ok(Element::Ca),
-            "Fe" => Ok(Element::Fe),
-            "Mn" => Ok(Element::Mn),
-            "Co" => Ok(Element::Co),
-            "Cr" => Ok(Element::Cr),
-            "I" => Ok(Element::I),
-            "Zn" => Ok(Element::Zn),
-            "Cu" => Ok(Element::Cu),
-            "F" => Ok(Element::F),
-            "Al" => Ok(Element::Al),
-            "Se" => Ok(Element::Se),
-            "V" => Ok(Element::V),
-            _ => Err(format!("Unknown atom name {}", inp)),
+            b"H" => Self::H,
+            b"C" => Self::C,
+            b"O" => Self::O,
+            b"N" => Self::N,
+            b"P" => Self::P,
+            b"S" => Self::S,
+            b"NA" => Self::Na,
+            b"MG" => Self::Mg,
+            b"CL" => Self::Cl,
+            b"K" => Self::K,
+            b"CA" => Self::Ca,
+            b"FE" => Self::Fe,
+            b"MN" => Self::Mn,
+            b"CO" => Self::Co,
+            b"CR" => Self::Cr,
+            b"I" => Self::I,
+            b"ZN" => Self::Zn,
+            b"CU" => Self::Cu,
+            b"F" => Self::F,
+            b"AL" => Self::Al,
+            b"SE" => Self::Se,
+            b"V" => Self::V,
+            _ => panic!(format!(
+                "fail to parse element: {}",
+                std::str::from_utf8(inp).unwrap()
+            )),
+        }
+    }
+    pub fn from_uppercase_fixed2(inp: &str) -> Self {
+        Self::from_bytes_uppercase_fixed2(inp.as_bytes())
+    }
+    pub fn from_bytes_uppercase_fixed2(inp: &[u8]) -> Self {
+        match inp {
+            b" H" => Self::H,
+            b" C" => Self::C,
+            b" O" => Self::O,
+            b" N" => Self::N,
+            b" P" => Self::P,
+            b" S" => Self::S,
+            b"NA" => Self::Na,
+            b"MG" => Self::Mg,
+            b"CL" => Self::Cl,
+            b" K" => Self::K,
+            b"CA" => Self::Ca,
+            b"FE" => Self::Fe,
+            b"MN" => Self::Mn,
+            b"CO" => Self::Co,
+            b"CR" => Self::Cr,
+            b" I" => Self::I,
+            b"ZN" => Self::Zn,
+            b"CU" => Self::Cu,
+            b" F" => Self::F,
+            b"AL" => Self::Al,
+            b"SE" => Self::Se,
+            b" V" => Self::V,
+            _ => panic!(format!(
+                "fail to parse element: {}",
+                std::str::from_utf8(inp).unwrap()
+            )),
         }
     }
 }

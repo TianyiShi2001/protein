@@ -1,7 +1,7 @@
 use crate::types::serial::{ResidueSerial, SecondaryStructureSerial};
 use crate::AminoAcid;
 use crate::AtomName;
-use serde::{Deserialize, Serialize};
+use serde::Serialize;
 
 /// # Overview
 ///
@@ -50,7 +50,7 @@ use serde::{Deserialize, Serialize};
 /// |Left-handed gamma               |            8                 |       
 /// |2 - 7 ribbon/helix              |            9                 |       
 /// |Polyproline                     |           10                 |       
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize)]
 pub struct Helix {
     // pub serial: SecondaryStructureSerial, // * implied
     pub id: String,
@@ -63,7 +63,7 @@ pub struct Helix {
     // length: usize, // * implied
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, Copy)]
+#[derive(Debug, Clone, Serialize, Copy)]
 pub enum HelixClass {
     RightHandedAlpha,
     RightHandedOmega,
@@ -139,14 +139,14 @@ impl Default for HelixClass {
 /// - The sense in columns 39 - 40 indicates whether strand n is parallel (sense = 1) or anti-parallel (sense = -1) to strand n-1. Sense is equal to zero (0) for the first strand of a sheet.
 /// - The registration (columns 42 - 70) of strand n to strand n-1 may be specified by one hydrogen bond between each such pair of strands. This is done by providing the hydrogen bonding between the current and previous strands. No register information should be provided for the first strand.
 /// - Split strands, or strands with two or more runs of residues from discontinuous parts of the amino acid sequence, are explicitly listed. Detail description can be included in the REMARK 700 .
-#[derive(Deserialize, Serialize, Debug, Default, Clone)]
+#[derive(Serialize, Debug, Default, Clone)]
 pub struct Sheet {
     pub id: String,
     pub strands: Vec<Strand>,
     pub registration: Vec<Registration>,
 }
 
-#[derive(Deserialize, Serialize, Debug, Clone)]
+#[derive(Serialize, Debug, Clone)]
 pub struct Strand {
     //pub serial: SsSerial, // * implied
     //pub nstrand: u8, // * implied
@@ -160,13 +160,13 @@ pub struct Strand {
 /// # Fields
 ///
 /// `cur` and `prev` are tuples containing 1. the element (N or O) 2. the chain identifier and 3. sequence number
-#[derive(Deserialize, Serialize, Debug, Clone)]
+#[derive(Serialize, Debug, Clone)]
 pub struct Registration {
     pub curr: (AtomName, char, ResidueSerial),
     pub prev: (AtomName, char, ResidueSerial),
 }
 
-#[derive(Deserialize, Serialize, Debug, Clone, Copy)]
+#[derive(Serialize, Debug, Clone, Copy)]
 pub enum Sense {
     Parallel,
     Antiparallel,

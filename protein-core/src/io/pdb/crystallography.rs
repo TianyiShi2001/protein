@@ -1,4 +1,4 @@
-use serde::{Deserialize, Serialize};
+use serde::Serialize;
 
 /// [Cryst1](www.wwpdb.org/documentation/file-format-content/format33/sect8.html#CRYST1)
 /// The CRYST1 record presents the unit cell parameters, space group, and Z value. If the
@@ -23,7 +23,7 @@ use serde::{Deserialize, Serialize};
 ///
 /// - https://infogalactic.com/info/Hermann%E2%80%93Mauguin_notation
 /// - https://enacademic.com/dic.nsf/enwiki/1879109
-#[derive(Debug, Clone, PartialEq, Default, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Default, Serialize)]
 pub struct Cryst1 {
     pub a: f32,
     pub b: f32,
@@ -38,7 +38,7 @@ pub struct Cryst1 {
 
 // Space groups can be defined by combining the point group identifier with the uppercase P, C, I,
 // or F for primitive, side-centered, body-centered, or face-centered lattices.
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
 pub enum LatticeType {
     Primitive,
     SideCentered,
@@ -53,8 +53,8 @@ impl Default for LatticeType {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Default, Serialize)]
 pub struct GroupAxis(pub u32, pub u32);
 
-#[derive(Debug, Clone, PartialEq, Eq, Default, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Default, Serialize)]
 pub struct SpaceGroup(pub GroupAxis, pub Option<GroupAxis>, pub Option<GroupAxis>);

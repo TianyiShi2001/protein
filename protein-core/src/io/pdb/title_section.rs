@@ -1,5 +1,5 @@
 use chrono::NaiveDate;
-use serde::{Deserialize, Serialize};
+use serde::Serialize;
 
 pub type Title = String;
 pub type Keywords = Vec<String>;
@@ -29,7 +29,7 @@ pub type Authors = Vec<String>;
 /// | 11 - 50 | String(40)/`String`   | `classification` | Classifies the molecule(s).               |
 /// | 51 - 59 | Date/`chrono::NaiveDate`         | `deposition_date`        | Deposition date. This is the date the coordinates  were received at the PDB.   |
 /// | 63 - 66 | IDcode/`String`      | `id_code`         | This identifier is unique within the PDB. |
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
 pub struct Header {
     pub classification: String,
     pub deposition_date: NaiveDate,
@@ -56,7 +56,7 @@ impl Default for Header {
 /// |         |                              | optional comment desc                     |
 pub type ExperimentalTechniques = Vec<ExperimentalTechnique>;
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize)]
 pub enum ExperimentalTechnique {
     XRayDiffraction,
     ElectronMicroscopy,
