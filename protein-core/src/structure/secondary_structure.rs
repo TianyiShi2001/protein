@@ -1,4 +1,4 @@
-use crate::types::serial::{ResidueSerial, SecondaryStructureSerial};
+use super::serial::{ResidueSerial, SecondaryStructureSerial};
 use crate::AminoAcid;
 use crate::AtomName;
 use serde::Serialize;

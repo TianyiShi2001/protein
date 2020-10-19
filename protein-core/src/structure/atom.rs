@@ -1,5 +1,5 @@
 use super::AtomSerial;
-use crate::types::{AminoAcid, Element, Residue};
+use super::{AminoAcid, Element, Residue};
 use serde::Serialize;
 
 #[derive(Debug, Clone, Serialize)]

@@ -1,3 +1,3 @@
-pub mod types;
-pub use types::*;
-pub mod io;
+pub mod structure;
+pub use structure::*;
+pub mod metadata;
