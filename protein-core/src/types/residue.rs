@@ -1,11 +1,10 @@
 use serde::Serialize;
-use std::{collections::HashMap, str::FromStr};
 use strum::EnumString;
 
 #[derive(Debug, Clone, Serialize)]
-pub enum Residue<'a> {
-    AminoAcid(AminoAcid<'a>),
-    Nucleotide(Nucleotide<'a>),
+pub enum Residue {
+    AminoAcid(AminoAcid),
+    Nucleotide(Nucleotide),
     Water,
     Molecule(String),
     Unknown(String),
@@ -29,9 +28,9 @@ pub struct Molecule {
 }
 
 #[derive(Debug, Clone, Eq, PartialEq, Serialize)]
-pub enum Nucleotide<'a> {
+pub enum Nucleotide {
     Standard(StandardNucleotide),
-    Modified(&'a ModifiedNucleotide),
+    Modified(String),
 }
 
 // impl Nucleotide {
@@ -92,9 +91,9 @@ impl StandardNucleotide {
 }
 
 #[derive(Debug, Clone, Eq, PartialEq, Serialize)]
-pub enum AminoAcid<'a> {
+pub enum AminoAcid {
     Standard(StandardAminoAcid),
-    Modified(&'a ModifiedAminoAcid),
+    Modified(String),
 }
 
 // impl AminoAcid {
@@ -182,9 +181,9 @@ pub struct ModifiedAminoAcid {
 
 pub trait Monomer {}
 
-impl<'a> Monomer for AminoAcid<'a> {}
+impl Monomer for AminoAcid {}
 
-impl<'a> Monomer for Nucleotide<'a> {}
+impl Monomer for Nucleotide {}
 
 #[derive(Debug, Clone, Eq, PartialEq, Serialize)]
 pub struct ModifiedNucleotide {

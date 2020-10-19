@@ -8,21 +8,21 @@ use std::collections::HashMap;
 pub type Connect = [AtomSerial; 2];
 
 #[derive(Debug, Clone, Serialize, Default)]
-pub struct Structure<'a> {
-    pub chains_aa: Vec<Chain<AminoAcid<'a>>>,
-    pub chains_nuc: Vec<Chain<Nucleotide<'a>>>,
+pub struct Structure {
+    pub chains_aa: Vec<Chain<AminoAcid>>,
+    pub chains_nuc: Vec<Chain<Nucleotide>>,
     pub helices: Vec<Helix>,
     pub sheets: Vec<Sheet>,
     pub modified_aa: HashMap<String, ModifiedAminoAcid>,
     pub modified_nuc: HashMap<String, ModifiedNucleotide>,
     pub connect: Vec<Connect>,
-    pub models: Vec<Model<'a>>,
+    pub models: Vec<Model>,
     // pub metadata: Option<Metadata>,
 }
 
 #[derive(Debug, Clone, Serialize, Default)]
-pub struct Model<'a> {
-    pub atoms: Vec<Atom<'a>>,
+pub struct Model {
+    pub atoms: Vec<Atom>,
     pub anisou: Vec<Anisou>,
 }
 
