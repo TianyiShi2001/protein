@@ -83,6 +83,7 @@ pub enum StandardAminoAcid {
 pub struct ModifiedAminoAcid {
     pub standard: StandardAminoAcid,
     pub description: String,
+    // formula: String,
 }
 
 pub trait Monomer {}

@@ -1,18 +1,25 @@
 use super::AtomSerial;
 use super::{Element, Residue};
 use serde::Serialize;
+use std::str::FromStr;
 
 /// Represents an atom in a structural model.
 ///
 /// # Field
 ///
 /// - `id`: Unique identifier. No two atoms. No two `Atom`s in the same `Model` can have the same `id`.
-/// - `name`: Atom name. This is useful, for example, in filtering out C-alpha atoms of amino acid residues.
+/// - `name`: Atom name. This represents the exact "role" of an atom in a given residue.
 /// - `residue`: The [`Residue`] this atom belongs to. This can be an amino acid, a nucleotide, water, or a custom molecule.
 /// - `chain`: The chain identifier
 /// - `sequence_number`: The position of this atom in the chain
+/// - `coord`: Cartesian coordinates `x, y, z`
+/// - `occupancy`:
+/// - `temperature_factor`:
+/// - `element`: The [`Element`]
+/// - `chaege`: The charge on the atom
 ///
 /// [`Residue`]: ../residue/struct.Residue.html
+/// [`Element`]: ../element/enum.Element.html
 #[derive(Debug, Clone, Serialize)]
 pub struct Atom {
     pub id: AtomSerial,
@@ -32,8 +39,40 @@ pub struct Atom {
 
 pub struct GenericAtomParser;
 
-#[derive(Debug, Clone, Serialize)]
+/// Internally, an `AtomName` is represented as an array of 4 bytes.
+///
+/// For convinience, `FromStr` is implemented for `AtomName`, so you can:
+///
+/// ```
+/// use std::str::FromStr;
+/// use protein_core::structure::AtomName;
+///
+/// let atom = AtomName::from_str("O2").unwrap();
+/// assert_eq!(atom, AtomName([b'O', b'2', b' ', b' ']));
+/// ```
+#[derive(Debug, Clone, Serialize, Eq, PartialEq)]
 pub struct AtomName(pub [u8; 4]);
+
+#[derive(Debug)]
+pub enum ParseAtomNameError {
+    LengthGreaterThan4,
+    LengthZero,
+}
+
+impl FromStr for AtomName {
+    type Err = ParseAtomNameError;
+    fn from_str(s: &str) -> Result<Self, ParseAtomNameError> {
+        let s = s.as_bytes();
+        match s.len() {
+            1usize => Ok(AtomName([s[0], b' ', b' ', b' '])),
+            2usize => Ok(AtomName([s[0], s[1], b' ', b' '])),
+            3usize => Ok(AtomName([s[0], s[1], s[2], b' '])),
+            4usize => Ok(AtomName([s[0], s[1], s[2], s[3]])),
+            0usize => Err(ParseAtomNameError::LengthZero),
+            _ => Err(ParseAtomNameError::LengthGreaterThan4),
+        }
+    }
+}
 
 // #[derive(Debug, Clone, Serialize)]
 // pub enum AtomName {
