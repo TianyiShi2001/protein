@@ -1,7 +1,11 @@
+//! Structure
+
+// The major complexity arises from non-standard/modified amino acid and nucleotide residues and hetero-residues (non-amino-acid and non-nucleotide  molecules).
+
 pub mod anisou;
 pub use anisou::Anisou;
 pub mod atom;
-pub use atom::{AminoAcidAtomName, Atom, AtomName, NucleotideAtomName};
+pub use atom::{Atom, AtomName}; // NucleotideAtomName, AminoAcidAtomName};
 pub mod element;
 pub use element::Element;
 pub mod model;

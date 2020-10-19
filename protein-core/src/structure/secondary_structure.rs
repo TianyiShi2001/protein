@@ -1,6 +1,5 @@
-use super::serial::{ResidueSerial, SecondaryStructureSerial};
-use crate::AminoAcid;
-use crate::AtomName;
+use super::serial::ResidueSerial;
+use super::AtomName;
 use serde::Serialize;
 
 /// # Overview
