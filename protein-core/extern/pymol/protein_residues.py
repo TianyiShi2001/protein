@@ -4266,7 +4266,26 @@ pub const """ + resname + "_CONNECT_" + suffix + f""": [(&'static str, &'static 
         print(s)
 
 
+def gen_const_arr(table, suffix):
+    for resname, data in table.items():
+        bonds = data['bonds']
+        s = ""
+        s += f"""\
+/// Connectivity within a {resname.title()} residue.
+/// Each tuple represents `(AtomNameX, AtomNameY, BondOrder)`.
+pub const """ + resname + "_CONNECT_" + suffix + f""": [(AtomName, AtomName, u8); {len(bonds)}] = [
+"""
+        for pair, order in bonds.items():
+            s += f"""\
+    (AtomName(*b"{pair[0]:<4}"), AtomName(*b"{pair[1]:<4}"), {order["order"]}),\n"""
+        s += """\
+};
+"""
+        print(s)
+
+
 if __name__ == "__main__":
-    gen_const(normal, "NORMAL")
-    gen_const(n_terminal, "NTERM")
-    gen_const(c_terminal, "CTERM")
+    print("use crate::structure::AtomName;\n\n")
+    gen_const_arr(normal, "NORMAL")
+    gen_const_arr(n_terminal, "NTERM")
+    gen_const_arr(c_terminal, "CTERM")
