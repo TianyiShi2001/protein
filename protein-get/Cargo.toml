@@ -1,0 +1,15 @@
+[package]
+name = "protein-get"
+version = "0.0.1"
+authors = ["Tianyi <ShiTianyi2001@outlook.com>"]
+edition = "2018"
+keywords = ["bioinformatics", "protein", "biology", "science"]
+license = "MIT"
+repository = "https://github.com/TianyiShi2001/protein"
+description = "Working with protein structures"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+flate2 = "1.0"
+reqwest = {version = "0.10", features = ["blocking"]}
