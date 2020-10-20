@@ -21,12 +21,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "dihedral"
-version = "0.0.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2febd89f0fead6c4ecaaaf2910f771d59ea26ce2055f96a9a551639ecd0ed0fa"
-
-[[package]]
 name = "heck"
 version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -77,10 +71,9 @@ dependencies = [
 
 [[package]]
 name = "protein-core"
-version = "0.1.6"
+version = "0.1.7"
 dependencies = [
  "chrono",
- "dihedral",
  "num-traits",
  "serde",
  "serde_json",

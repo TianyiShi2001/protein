@@ -1,10 +1,11 @@
-use crate::{Model, Residue};
+use crate::structure::{Model, Residue};
+use dihedral::dihedral;
 
-pub trait ProteinAnalysis {
+pub trait ModelAnalysis {
     fn ramachandran(&self) -> (Vec<f32>, Vec<f32>);
 }
 
-impl ProteinAnalysis for Model {
+impl ModelAnalysis for Model {
     fn ramachandran(&self) -> (Vec<f32>, Vec<f32>) {
         let mut n: Vec<[f32; 3]> = Default::default();
         let mut ca: Vec<[f32; 3]> = Default::default();
@@ -13,9 +14,10 @@ impl ProteinAnalysis for Model {
         let mut i = 0;
         while i < self.atoms.len() {
             if let Residue::AminoAcid(_) = self.atoms[i].residue {
-                if self.atoms[i].name.is_n()
-                    && self.atoms[i + 1].name.is_ca()
-                    && self.atoms[i + 2].name.is_c()
+                if self.atoms[i].name.0 == b"N   "[..]// .is_n()
+                    && self.atoms[i + 1].name.0 == b"CA  "[..] // .is_ca()
+                    && self.atoms[i + 2].name.0 == b"C   "[..]
+                // .is_c()
                 {
                     n.push(self.atoms[i].coord);
                     ca.push(self.atoms[i + 1].coord);

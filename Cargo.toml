@@ -11,6 +11,10 @@ description = "Working with protein structures"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-protein-core = '0.1.6'
+protein-core = '0.1.7'
 serde = { version = "1.0", features = ["derive"] }
-nom-pdb = "0.0"
+nom-pdb = "0.0.8"
+dihedral =  {version = "0.0", features = ["f32"]}
+
+[dev-dependencies]
+csv = "1"
