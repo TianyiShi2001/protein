@@ -1,6 +1,8 @@
 # protein
 
-Structural Biology in Rust
+Protein structural Biology in Rust.
+
+**NOTE: This crate is in early development and the API has not yet been stabilized, so do not use this crate in production. If you have any suggestions, please don't hesitate to open an issue or make a PR!**
 
 ## Example
 
@@ -21,7 +23,9 @@ fn main() {
     let (_, structure) = Parser::parse(&data).unwrap();
     let (phis, psis) = structure.models[0].ramachandran(); 
     // the `.ramachandran()` function is provided by the `ModelAnalysis` trait
+    // this produces vectors of phi and psi angles in radians
 
+    // the code below is used to output csv, which is optional
     let mut wtr = Writer::from_path("examples/ramachandran.csv").unwrap();
     wtr.write_record(&["phi", "psi"]).unwrap();
     for (&phi, &psi) in phis.iter().zip(psis.iter()) {
@@ -33,7 +37,7 @@ fn main() {
 
 ```
 
-This will produce a csv file containing two columns representing phi and psi angles. Then we can read the csv file in R and plot it (unfortunately I am not of any graphing libraries in Rust):
+This will produce a csv file containing two columns representing phi and psi angles. Then we can read the csv file in R and plot it (unfortunately I am not familiar with any graphing libraries in Rust):
 
 ![ramachandran plot](./examples/ramachandran.png)
 
