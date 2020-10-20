@@ -1,6 +1,6 @@
 [package]
 name = "protein"
-version = "0.0.2"
+version = "0.0.5"
 authors = ["Tianyi <ShiTianyi2001@outlook.com>"]
 edition = "2018"
 keywords = ["bioinformatics", "protein", "biology", "science"]
@@ -11,6 +11,6 @@ description = "Working with protein structures"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-protein-core = '0.1.0'
+protein-core = '0.1.6'
 serde = { version = "1.0", features = ["derive"] }
-nom-pdb = "0.0.1"
+nom-pdb = "0.0"

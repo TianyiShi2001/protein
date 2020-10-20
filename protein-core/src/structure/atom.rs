@@ -53,6 +53,21 @@ pub struct GenericAtomParser;
 #[derive(Debug, Clone, Serialize, Eq, PartialEq)]
 pub struct AtomName(pub [u8; 4]);
 
+impl AtomName {
+    pub(crate) fn is_n(&self) -> bool {
+        &self.0 == b"N   "
+    }
+    pub(crate) fn is_c(&self) -> bool {
+        &self.0 == b"C   "
+    }
+    pub(crate) fn is_ca(&self) -> bool {
+        &self.0 == b"CA  "
+    }
+    pub(crate) fn is_o(&self) -> bool {
+        &self.0 == b"O   "
+    }
+}
+
 #[derive(Debug)]
 pub enum ParseAtomNameError {
     LengthGreaterThan4,

@@ -29,15 +29,23 @@ use std::collections::HashMap;
 
 use crate::metadata::Metadata;
 
+#[derive(Debug, Clone, Serialize)]
+pub struct Ssbond {
+    pub a: (char, ResidueSerial),
+    pub b: (char, ResidueSerial),
+}
+
 #[derive(Debug, Clone, Serialize, Default)]
 pub struct Structure {
     pub chains_aa: Vec<Chain<AminoAcid>>,
     pub chains_nuc: Vec<Chain<Nucleotide>>,
     pub helices: Vec<Helix>,
     pub sheets: Vec<Sheet>,
+    pub ssbonds: Vec<Ssbond>,
     pub modified_aa: HashMap<String, ModifiedAminoAcid>,
     pub modified_nuc: HashMap<String, ModifiedNucleotide>,
     pub connect: Vec<Connect>,
+    // pub link: Vec<Link>
     pub models: Vec<Model>,
     pub metadata: Option<Metadata>,
 }

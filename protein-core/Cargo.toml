@@ -18,3 +18,4 @@ chrono = {version = "0.4", features = ["serde"]}
 strum = { version = "0.19", features = ["derive"] }
 # phf = { version = "0.7.24", features = ["macros"] }
 # lazy_static = "1.4.0"
+dihedral =  {version = "0.0", features = ["f32"]}

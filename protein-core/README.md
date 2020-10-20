@@ -7,4 +7,4 @@
 
 This crate provides fundamental types and data for working with protein structures.
 
-NOTE: This crate is in early developmen and the API has not yet been stabilized, so do not use this crate in production. If you have any suggestions, please don't hesitate to open an issue or make a PR!
+NOTE: This crate is in early development and the API has not yet been stabilized, so do not use this crate in production. If you have any suggestions, please don't hesitate to open an issue or make a PR!
