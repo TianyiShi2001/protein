@@ -1,6 +1,6 @@
 [package]
 name = "protein-get"
-version = "0.0.1"
+version = "0.0.2"
 authors = ["Tianyi <ShiTianyi2001@outlook.com>"]
 edition = "2018"
 keywords = ["bioinformatics", "protein", "biology", "science"]

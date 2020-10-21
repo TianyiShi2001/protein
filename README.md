@@ -19,8 +19,8 @@ use protein::{
 use std::fs;
 
 fn main() {
-    let data = fs::read("assets/4f7i.pdb").unwrap();
-    let (_, structure) = Parser::parse(&data).unwrap();
+    let pdbfile = get_pdb("4f7i").unwrap();
+    let structure = Parser::parse(&pdbfile).unwrap();
     let (phis, psis) = structure.models[0].ramachandran(); 
     // the `.ramachandran()` function is provided by the `ModelAnalysis` trait
     // this produces vectors of phi and psi angles in radians
