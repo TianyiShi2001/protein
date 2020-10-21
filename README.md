@@ -1,8 +1,24 @@
 # protein
 
+[![crates.io](https://img.shields.io/crates/d/protein.svg)](https://crates.io/crates/protein)
+[![crates.io](https://img.shields.io/crates/v/protein.svg)](https://crates.io/crates/protein)
+[![crates.io](https://img.shields.io/crates/l/protein.svg)](https://crates.io/crates/protein)
+[![docs.rs](https://docs.rs/protein/badge.svg)](https://docs.rs/protein)
+
 Protein structural Biology in Rust.
 
 **NOTE: This crate is in early development and the API has not yet been stabilized, so do not use this crate in production. If you have any suggestions, please don't hesitate to open an issue or make a PR!**
+
+## Components
+
+
+| **crate**        | Links                                                                                                                                                                                                                                                                                            |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **protein**      | [![crates.io](https://img.shields.io/crates/d/protein.svg)](https://crates.io/crates/protein)[![crates.io](https://img.shields.io/crates/v/protein.svg)](https://crates.io/crates/protein)[![docs.rs](https://docs.rs/protein/badge.svg)](https://docs.rs/protein)                               |
+| **protein-core** | [![crates.io](https://img.shields.io/crates/d/protein-core.svg)](https://crates.io/crates/protein-core)[![crates.io](https://img.shields.io/crates/v/protein-core.svg)](https://crates.io/crates/protein-core)[![docs.rs](https://docs.rs/protein-core/badge.svg)](https://docs.rs/protein-core) |
+| **protein-get**  | [![crates.io](https://img.shields.io/crates/d/protein-get.svg)](https://crates.io/crates/protein-get)[![crates.io](https://img.shields.io/crates/v/protein-get.svg)](https://crates.io/crates/protein-get)[![docs.rs](https://docs.rs/protein-get/badge.svg)](https://docs.rs/protein-get)       |
+
+
 
 ## Example
 

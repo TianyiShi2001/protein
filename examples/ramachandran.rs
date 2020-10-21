@@ -2,13 +2,13 @@ use csv::Writer; // the crate `csv` is required if you want to output csv
 use protein::{
     analysis::ModelAnalysis, // `Structure` alone only stores data.
     // Functions for analysing the `Structure` are provided by separate traits
-    io::pdb::Parser, // the PDB parser that parses PDB file into a `Structure`
+    io::parse_pdb, // the PDB parser that parses PDB file into a `Structure`
 };
 use protein_get::get_pdb;
 
 fn main() {
     let pdbfile = get_pdb("4f7i").unwrap();
-    let structure = Parser::parse(&pdbfile).unwrap();
+    let structure = parse_pdb(&pdbfile).unwrap();
     let (phis, psis) = structure.models[0].ramachandran(); // the `.ramachandran()` function is provided by the `ModelAnalysis` trait
 
     let mut wtr = Writer::from_path("examples/ramachandran.csv").unwrap();

@@ -1,22 +1,16 @@
 [package]
-name = "protein"
-version = "0.0.5"
+name = "protein-io"
+version = "0.0.1"
 authors = ["Tianyi <ShiTianyi2001@outlook.com>"]
 edition = "2018"
 keywords = ["bioinformatics", "protein", "biology", "science"]
 license = "MIT"
 repository = "https://github.com/TianyiShi2001/protein"
-description = "Working with protein structures"
+description = "Parsers for common protein structure file formats"
+
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-protein-core = '0.1.7'
-serde = { version = "1.0", features = ["derive"] }
 nom-pdb = "0.0.9"
-dihedral =  {version = "0.0", features = ["f32"]}
-protein-io = {path = "./protein-io"}
-
-[dev-dependencies]
-csv = "1"
-protein-get = "0.0"
+protein-core = "0.1"

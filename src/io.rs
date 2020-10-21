@@ -1,1 +1,1 @@
-pub mod pdb;
+pub use protein_io::*;

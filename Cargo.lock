@@ -740,6 +740,7 @@ dependencies = [
  "nom-pdb",
  "protein-core",
  "protein-get",
+ "protein-io",
  "serde",
 ]
 
@@ -765,6 +766,14 @@ checksum = "c3032648f171a10ae23d31437a92ea50ddd58bd5933c25a8afae93b54c9eca97"
 dependencies = [
  "flate2",
  "reqwest",
+]
+
+[[package]]
+name = "protein-io"
+version = "0.0.1"
+dependencies = [
+ "nom-pdb",
+ "protein-core",
 ]
 
 [[package]]
