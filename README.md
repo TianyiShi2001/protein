@@ -30,16 +30,16 @@ Let's read a protein structure from a PDB file and draw a Ramachandran plot!
 ```rust
 use csv::Writer; // the crate `csv` is required if you want to output csv
 use protein::{
-    io::pdb::Parser, // the PDB parser that parses PDB file into a `Structure`
-    analysis::ModelAnalysis // `Structure` alone only stores data.
-                              // Functions for analysing the `Structure` are provided by separate traits
- };
-use std::fs;
+    analysis::model::ModelAnalysis, // `Structure` alone only stores data.
+    get::get_pdb,
+    // Functions for analysing the `Structure` are provided by separate traits
+    io::parse_pdb, // the PDB parser that parses PDB file into a `Structure`
+};
 
 fn main() {
     let pdbfile = get_pdb("4f7i").unwrap();
-    let structure = Parser::parse(&pdbfile).unwrap();
-    let (phis, psis) = structure.models[0].ramachandran(); 
+    let structure = parse_pdb(&pdbfile).unwrap();
+    let (phis, psis) = structure.models[0].ramachandran();
     // the `.ramachandran()` function is provided by the `ModelAnalysis` trait
     // this produces vectors of phi and psi angles in radians
 
@@ -52,7 +52,6 @@ fn main() {
     }
     wtr.flush().unwrap();
 }
-
 ```
 
 This will produce a csv file containing two columns representing phi and psi angles. Then we can read the csv file in R and plot it (unfortunately I am not familiar with any graphing libraries in Rust):

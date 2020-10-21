@@ -9,8 +9,11 @@ use protein::{
 fn main() {
     let pdbfile = get_pdb("4f7i").unwrap();
     let structure = parse_pdb(&pdbfile).unwrap();
-    let (phis, psis) = structure.models[0].ramachandran(); // the `.ramachandran()` function is provided by the `ModelAnalysis` trait
+    let (phis, psis) = structure.models[0].ramachandran();
+    // the `.ramachandran()` function is provided by the `ModelAnalysis` trait
+    // this produces vectors of phi and psi angles in radians
 
+    // the code below is used to output csv, which is optional
     let mut wtr = Writer::from_path("examples/ramachandran.csv").unwrap();
     wtr.write_record(&["phi", "psi"]).unwrap();
     for (&phi, &psi) in phis.iter().zip(psis.iter()) {
