@@ -1,5 +1,5 @@
-use crate::structure::{Model, Residue};
 use dihedral::dihedral;
+use protein_core::structure::{Model, Residue};
 
 pub trait ModelAnalysis {
     fn ramachandran(&self) -> (Vec<f32>, Vec<f32>);

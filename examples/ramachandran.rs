@@ -1,10 +1,10 @@
 use csv::Writer; // the crate `csv` is required if you want to output csv
 use protein::{
-    analysis::ModelAnalysis, // `Structure` alone only stores data.
+    analysis::model::ModelAnalysis, // `Structure` alone only stores data.
+    get::get_pdb,
     // Functions for analysing the `Structure` are provided by separate traits
     io::parse_pdb, // the PDB parser that parses PDB file into a `Structure`
 };
-use protein_get::get_pdb;
 
 fn main() {
     let pdbfile = get_pdb("4f7i").unwrap();

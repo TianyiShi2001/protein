@@ -601,7 +601,7 @@ dependencies = [
  "chrono",
  "nom",
  "num-traits",
- "protein-core",
+ "protein-core 0.1.7 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -736,12 +736,30 @@ name = "protein"
 version = "0.0.5"
 dependencies = [
  "csv",
- "dihedral",
- "nom-pdb",
- "protein-core",
+ "protein-analysis",
+ "protein-core 0.1.7 (registry+https://github.com/rust-lang/crates.io-index)",
  "protein-get",
  "protein-io",
  "serde",
+]
+
+[[package]]
+name = "protein-analysis"
+version = "0.0.1"
+dependencies = [
+ "dihedral",
+ "protein-core 0.1.7 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "protein-core"
+version = "0.1.7"
+dependencies = [
+ "chrono",
+ "num-traits",
+ "serde",
+ "serde_json",
+ "strum",
 ]
 
 [[package]]
@@ -761,8 +779,6 @@ dependencies = [
 [[package]]
 name = "protein-get"
 version = "0.0.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c3032648f171a10ae23d31437a92ea50ddd58bd5933c25a8afae93b54c9eca97"
 dependencies = [
  "flate2",
  "reqwest",
@@ -773,7 +789,7 @@ name = "protein-io"
 version = "0.0.1"
 dependencies = [
  "nom-pdb",
- "protein-core",
+ "protein-core 0.1.7 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]

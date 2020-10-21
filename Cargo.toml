@@ -10,13 +10,20 @@ description = "Working with protein structures"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[workspace]
+members = [
+    "protein-core",
+    "protein-io",
+    "protein-analysis",
+    "protein-get",
+]
+
 [dependencies]
-protein-core = '0.1.7'
+protein-core = "0.1"
+protein-io = { path = "protein-io", version = "0.0" }
+protein-analysis = { path = "protein-analysis", version = "0.0" }
+protein-get = { path = "protein-get", version = "0.0" }
 serde = { version = "1.0", features = ["derive"] }
-nom-pdb = "0.0.9"
-dihedral =  {version = "0.0", features = ["f32"]}
-protein-io = {path = "./protein-io"}
 
 [dev-dependencies]
 csv = "1"
-protein-get = "0.0"
