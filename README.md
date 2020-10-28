@@ -11,10 +11,11 @@ Protein structural Biology in Rust.
 
 ## Components
 
+The **protein** crate essentially re-exports the components listed below. Depending on the use case, you may want to only use some of them.
+
 
 | **crate**            | Links                                                                                                                                                                                                                                                                                                                    |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **protein**          | [![crates.io](https://img.shields.io/crates/d/protein.svg)](https://crates.io/crates/protein)[![crates.io](https://img.shields.io/crates/v/protein.svg)](https://crates.io/crates/protein)[![docs.rs](https://docs.rs/protein/badge.svg)](https://docs.rs/protein)                                                       |
 | **protein-core**     | [![crates.io](https://img.shields.io/crates/d/protein-core.svg)](https://crates.io/crates/protein-core)[![crates.io](https://img.shields.io/crates/v/protein-core.svg)](https://crates.io/crates/protein-core)[![docs.rs](https://docs.rs/protein-core/badge.svg)](https://docs.rs/protein-core)                         |
 | **protein-get**      | [![crates.io](https://img.shields.io/crates/d/protein-get.svg)](https://crates.io/crates/protein-get)[![crates.io](https://img.shields.io/crates/v/protein-get.svg)](https://crates.io/crates/protein-get)[![docs.rs](https://docs.rs/protein-get/badge.svg)](https://docs.rs/protein-get)                               |
 | **protein-io**       | [![crates.io](https://img.shields.io/crates/d/protein-io.svg)](https://crates.io/crates/protein-io)[![crates.io](https://img.shields.io/crates/v/protein-io.svg)](https://crates.io/crates/protein-io)[![docs.rs](https://docs.rs/protein-io/badge.svg)](https://docs.rs/protein-io)                                     |

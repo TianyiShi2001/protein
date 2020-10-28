@@ -16,6 +16,7 @@ members = [
     "protein-io",
     "protein-analysis",
     "protein-get",
+    "protein-data"
 ]
 
 [dependencies]

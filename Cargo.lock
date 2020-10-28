@@ -777,6 +777,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "protein-data"
+version = "0.1.0"
+
+[[package]]
 name = "protein-get"
 version = "0.0.2"
 dependencies = [
